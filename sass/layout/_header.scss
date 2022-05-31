@@ -1,0 +1,22 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use '../base/typography' as *;
+@use '../base/normalize' as *;
+
+header {
+  position: relative;
+  text-align: center;
+  padding: $margin-entire 0 $margin-side;
+  box-shadow: 1px 0px 10px $color-shadow;
+  z-index: 1;
+  img {
+    width: auto;
+  }
+  a {
+    align-items: center;
+    i {
+      float: left;
+      margin: 0 $margin-between;
+    }
+  }
+}

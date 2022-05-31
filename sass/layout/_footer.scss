@@ -1,0 +1,39 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use '../base/typography' as *;
+@use '../base/normalize' as *;
+
+footer {
+  background-color: $color-grey-darker;
+  padding: $margin-entire;
+  .footer-logo {
+    color: #fff;
+    font-family: $font-family-logo;
+    font-size: $font-size-large;
+    padding: $margin-side 0;
+    margin: 0;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+    li {
+      color: #fff;
+      display: flex;
+      align-items: center;
+      margin-bottom: $margin-between;
+      i,
+      p {
+        color: #fff;
+        margin: 0;
+      }
+      i {
+        margin-right: calc($margin-between/2);
+        font-size: $font-size-small;
+      }
+    }
+  }
+}
+
+.footer__light {
+  font-weight: $font-weight-light;
+}

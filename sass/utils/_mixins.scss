@@ -1,0 +1,69 @@
+@mixin font-size($fs-map) {
+  @each $fs-breakpoint, $fs-font-size in $fs-map {
+    @if $fs-breakpoint == null {
+      font-size: $fs-font-size;
+    } @else {
+      @media screen and (min-width: $fs-breakpoint) {
+        font-size: $fs-font-size;
+      }
+    }
+  }
+}
+
+//media queries
+@mixin tablet {
+  @media only screen and (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media only screen and (min-width: $mobile) {
+    @content;
+  }
+}
+
+//USAGE
+/*
+@include tablet {
+  font-size : ...
+}  
+*/
+
+// Gradient
+@mixin gradient {
+  background: linear-gradient(to bottom right, #ff79da, #9356dc);
+}
+
+// @mixin button {
+//   cursor: pointer;
+//   opacity: 0.8;
+//   box-shadow: 1px 1px 10px $color-shadow;
+//   transition: all 0.5s ease;
+// }
+
+// Transition
+@mixin transition($option, $option2) {
+  background: linear-gradient();
+}
+
+//Flexbox
+@mixin flex-center($column) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $column;
+}
+
+//grid
+@mixin wrapper-grid($col, $repeat-fr, $margin-between) {
+  display: grid;
+  grid-template-columns: repeat($col, $repeat-fr);
+  grid-gap: $margin-between;
+}

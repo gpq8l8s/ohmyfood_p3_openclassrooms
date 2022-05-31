@@ -1,0 +1,310 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use '../base/typography' as *;
+@use '../base/normalize' as *;
+
+* {
+  font-family: $font-family-body;
+  font-size: $font-size-small;
+  font-weight: $font-weight-medium;
+  color: #000;
+}
+
+.main {
+  margin: 0 0 $margin-between;
+  &__location {
+    display: flex;
+    background-color: $color-grey;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    i {
+      font-size: 1.3rem;
+      margin-right: calc($margin-between/2);
+    }
+    p {
+      font-size: 1.3rem;
+      font-weight: $font-weight-thick;
+    }
+  }
+
+  &__text {
+    background-color: $color-grey-lighter;
+    padding: $margin-entire;
+    text-align: center;
+    h1 {
+      margin: 0 calc($margin-side * 2);
+    }
+    p {
+      color: $color-grey-darker;
+      font-weight: $font-weight-light;
+    }
+    &-btn {
+      @include gradient;
+      border-radius: $font-size-large;
+      padding: $margin-side $margin-entire;
+      border: none;
+      color: #fff;
+      &:hover {
+        cursor: pointer;
+        // ??? doesn't work
+        opacity: 0.8;
+        box-shadow: 1px 1px 10px $color-shadow;
+        transition: all 0.2s ease;
+      }
+    }
+  }
+}
+
+.fonctionnement {
+  margin: $margin-entire * 1.5 $margin-side;
+  &__lists {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: $margin-between;
+    &:hover {
+      .fonctionnement__lists-content {
+        transition: all 0.5s ease;
+        background-color: rgba(147, 86, 220, 0.1);
+        i {
+          color: $color-primary;
+          transition: all 0.5s ease;
+        }
+      }
+    }
+    &-number {
+      background-color: $color-primary;
+      // position: absolute;
+      padding: calc($margin-between/2);
+      border-radius: 50%;
+      color: #fff;
+      // z-index: 1;
+      font-size: $font-size-small;
+      width: 0.9rem;
+      height: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &-content {
+      display: flex;
+      width: 100%;
+      // position: relative;
+      align-items: center;
+      background-color: $color-grey-lighter;
+      box-shadow: 0px 5px 10px $color-grey;
+      padding: $margin-side$margin-entire;
+      border-radius: $font-size-large;
+      margin-left: -15px;
+      z-index: -1;
+      // &:hover {
+      //   transition: all 0.5s ease;
+      //   background-color: rgba(147, 86, 220, 0.3);
+      // }
+      i {
+        margin-right: $margin-between;
+        color: $color-grey-dark;
+      }
+      p {
+        font-weight: $font-weight-thick;
+      }
+    }
+  }
+}
+
+.restaurants {
+  background-color: $color-grey-lighter;
+  padding: calc($margin-entire * 1.5) $margin-side;
+  &__card {
+    position: relative;
+    background-color: #fff;
+    border-radius: $font-size-large;
+    display: inline-block;
+    margin-bottom: $margin-between;
+    box-shadow: 1px 1px 10px $color-grey;
+    width: 100%;
+    img {
+      border-radius: $font-size-large $font-size-large 0 0;
+      height: 12rem;
+      width: 100%;
+      object-fit: cover;
+    }
+    .absolute {
+      position: absolute;
+      right: 5%;
+      background-color: $color-tertiary;
+      color: #1f7c65;
+      padding: calc($margin-between/2);
+      border-radius: calc($font-size-micro/3);
+    }
+    &:hover {
+      box-shadow: 1px 1px 10px $color-shadow;
+      transition: all 0.5s ease;
+    }
+  }
+  &__card-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 $margin-between;
+    p {
+      margin: calc($margin-between/3) 0 calc($margin-between/2);
+      font-weight: $font-weight-light;
+    }
+    i {
+      color: $color-grey-darker;
+      -webkit-transition: all ease 0.5s;
+      -moz-transition: all ease 0.5s;
+      transition: all ease 0.5s;
+      box-shadow: inset 0 0 0 0
+        linear-gradient(to top, #ff79da 10%, #9356dc 90%);
+      font-size: $icon-size;
+      // &:hover {
+      // background: linear-gradient(
+      //   to top,
+      //   $color-secondary 10%,
+      //   $color-primary 90%
+      // );
+      // animation: ;
+      // box-shadow: inset 100px 0 0 0
+      // linear-gradient(to top, #ff79da 10%, #9356dc 90%);
+      // }
+    }
+  }
+}
+
+// rolling two dots - doesn't work
+// .loading-spinner-container {
+//   position: relative;
+//   justify-content: center;
+//   align-items: center;
+//   transition: 0.3s linear;
+//   padding: $margin-between;
+// }
+// .loading-spinner {
+//   width: 48px;
+//   height: 48px;
+//   display: inline-block;
+//   position: relative;
+//   color: $color-primary;
+//   animation: rotation 1s linear infinite;
+//   transform: scale(1);
+//   &::after,
+//   &::before {
+//     content: '';
+//     position: absolute;
+//     width: 24px;
+//     height: 24px;
+//     top: 50%;
+//     left: 50%;
+//     transform: scale(0.5) translate(0, 0);
+//     background-color: $color-primary;
+//     border-radius: 50%;
+//     animation: rotation 1s infinite ease-in-out;
+//   }
+//   &:before {
+//     background-color: $color-tertiary;
+//     transform: scale(0.5) translate(-48px, -48px);
+//   }
+// }
+
+//round spinner
+// .loading-spinner {
+//   border: 10px solid $color-tertiary;
+//   border-top: 10px solid $color-primary;
+//   border-radius: 50%;
+//   width: 20px;
+//   height: 20px;
+//   animation: spin 2s linear infinite;
+// }
+
+// @keyframes spin {
+//   0% {
+//     transform: rotate(0deg);
+//   }
+//   100% {
+//     transform: rotate(360deg);
+//   }
+// }
+
+//two dots
+.loading-spinner-container {
+  margin: auto;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  text-align: center;
+  justify-content: center;
+
+  -webkit-animation: sk-rotate 2s infinite linear;
+  animation: sk-rotate 2s infinite linear;
+}
+
+.loading-spinner-dot1,
+.loading-spinner-dot2 {
+  width: 60%;
+  height: 60%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  border-radius: 100%;
+
+  -webkit-animation: sk-bouce 2s infinite ease-in-out;
+  animation: sk-bounce 2s infinite ease-in-out;
+}
+
+.loading-spinner-dot1 {
+  background-color: $color-tertiary;
+}
+
+.loading-spinner-dot2 {
+  background-color: $color-primary;
+  top: auto;
+  bottom: 0;
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
+}
+
+@-webkit-keyframes sk-rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes sk-rotate {
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes sk-bounce {
+  0%,
+  100% {
+    -webkit-transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes sk-bounce {
+  0%,
+  100% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+
+.restaurants
+  > .restaurants__card
+  > .restaurants__card-title
+  > .restaurants__card-text
+  > .restaurant__card-title--bold {
+  font-weight: $font-weight-thicker;
+  margin: calc($margin-between/2) 0 0;
+}
