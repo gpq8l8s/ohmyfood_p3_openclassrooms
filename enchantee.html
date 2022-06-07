@@ -22,10 +22,13 @@
   </head>
   <body>
     <header>
-      <a href="index.html">
+      <a href="index.html" class="header-icon">
         <i class="fas fa-arrow-left"></i>
-        <img class="logo-header" src="./assets/img/ohmyfood-svg.svg" alt=""
-      /></a>
+      </a>
+      <a href="index.html" class="header__logo">
+        <img src="./assets/img/ohmyfood-svg.svg" alt=""
+        />
+      </a>
     </header>
     <img src="./assets/img/enchantee.jpg" class="main-img" id="enchantee-img" alt="" />
     <section class="menu">
@@ -37,57 +40,92 @@
         <p class="menu__card-title">ENTRÉES</p>
         <div class="menu__card-list">
           <a href="#" class="ravioles">
-            <div class="menu__card-list-text">
-              <p class="strong">Ravioles de foie gras</p>
-              <p class="light">Accompagnés de leur crème à la truffe</p>
+            <div class="juscon">
+              <div class="menu__card-list-text">
+                <p class="strong">Ravioles de foie gras</p>
+                <p class="light">Accompagnés de leur crème à la truffe</p>
+              </div>
+              <p class="price">25€</p>
             </div>
-            <p class="price">25€</p>
+            <div class="animation">
+              <i class="fas fa-check-circle"></i>
+            </div>
           </a>
           <a href="#" class="caviar">
-            <div class="menu__card-list-text">
-              <p class="strong">Caviar osciètre</p>
-              <p class="light">Sur blini à la farine de blé noir</p>
+            <div class="juscon">
+              <div class="menu__card-list-text">
+                <p class="strong">Caviar osciètre</p>
+                <p class="light">Sur blini à la farine de blé noir</p>
+              </div>
+              <p class="price">35€</p>
             </div>
-            <p class="price">35€</p>
+            <div class="animation">
+              <i class="fas fa-check-circle"></i>
+            </div>
           </a>
           <a href="#" class="homard">
-            <div class="menu__card-list-text">
-              <p class="strong">Homard et espuma de </p>
-              <p class="light">Mariné aux zests d'orange</p>
+            <div class="juscon">
+              <div class="menu__card-list-text">
+                <p class="strong">Homard et espuma de </p>
+                <p class="light">Mariné aux zests d'orange</p>
+              </div>
+              <p class="price">20€</p>
             </div>
-            <p class="price">20€</p>
+            <div class="animation">
+              <i class="fas fa-check-circle"></i>
+            </div>
           </a>
           <a href="#" class="canard-cuit">
-            <div class="menu__card-list-text">
-              <p class="strong">Foie gras de canard cuit entier</p>
-              <p class="light">Confiture de figue et pain toasté</p>
+            <div class="juscon">
+              <div class="menu__card-list-text">
+                <p class="strong">Foie gras de canard cuit entier</p>
+                <p class="light">Confiture de figue et pain toasté</p>
+              </div>
+              <p class="price">35€</p>
             </div>
-            <p class="price">35€</p>
+            <div class="animation">
+              <i class="fas fa-check-circle"></i>
+            </div>
           </a>
         </div>
       <div class="menu__card plats">
         <p class="menu__card-title">PLATS</p>
         <div class="menu__card-list">
           <a href="#" class="noix-de-croquilles">
-            <div class="menu__card-list-text">
-              <p class="strong">Noix de coquilles Saint-Jacques</p>
-              <p class="light">Sur lit de purée de céleri-rave</p>
+            <div class="juscon">
+              <div class="menu__card-list-text">
+                <p class="strong">Noix de coquilles Saint-Jacques</p>
+                <p class="light">Sur lit de purée de céleri-rave</p>
+              </div>
+              <p class="price">40€</p>
             </div>
-            <p class="price">40€</p>
+            <div class="animation">
+              <i class="fas fa-check-circle"></i>
+            </div>
           </a>
           <a href="#" class="langoustine">
-            <div class="menu__card-list-text">
-              <p class="strong">Langoustine poêlée</p>
-              <p class="light">Purée de patate douce</p>
+            <div class="juscon">
+              <div class="menu__card-list-text">
+                <p class="strong">Langoustine poêlée</p>
+                <p class="light">Purée de patate douce</p>
+              </div>
+              <p class="price">35€</p>
             </div>
-            <p class="price">35€</p>
+            <div class="animation">
+              <i class="fas fa-check-circle"></i>
+            </div>
           </a>
           <a href="#" class="mojite">
-            <div class="menu__card-list-text">
-              <p class="strong">Mojité de queue de boeuf</p>
-              <p class="light">Et riz sauvage aux zests de citron</p>
+            <div class="juscon">
+              <div class="menu__card-list-text">
+                <p class="strong">Mojité de queue de boeuf</p>
+                <p class="light">Et riz sauvage aux zests de citron</p>
+              </div>
+              <p class="price">44€</p>
             </div>
-            <p class="price">44€</p>
+            <div class="animation">
+              <i class="fas fa-check-circle"></i>
+            </div>
           </a>
         </div>
       </div>
@@ -95,25 +133,40 @@
         <p class="menu__card-title">DESSERTS</p>
         <div class="menu__card-list">
           <a href="#" class="macaron-noisette">
-            <div class="menu__card-list-text">
-              <p class="strong">Macaron noisette et chocolat</p>
-              <p class="light">Glace qu caramel brun et sel de Guérande</p>
+            <div class="juscon">
+              <div class="menu__card-list-text">
+                <p class="strong">Macaron noisette et chocolat</p>
+                <p class="light">Glace qu caramel brun et sel de Guérande</p>
+              </div>
+              <p class="price">18€</p>
             </div>
-            <p class="price">18€</p>
+            <div class="animation">
+              <i class="fas fa-check-circle"></i>
+            </div>
           </a>
           <a href="#" class="baba-au-rhum">
-            <div class="menu__card-list-text">
-              <p class="strong">Baba au rhum revisté</p>
-              <p class="light">Avec son coulis de citron</p>
+            <div class="juscon">
+              <div class="menu__card-list-text">
+                <p class="strong">Baba au rhum revisté</p>
+                <p class="light">Avec son coulis de citron</p>
+              </div>
+              <p class="price">22€</p>
             </div>
-            <p class="price">22€</p>
+            <div class="animation">
+              <i class="fas fa-check-circle"></i>
+            </div>
           </a>
           <a href="#" class="tarte-au-citron">
-            <div class="menu__card-list-text">
-              <p class="strong">Tarte au citron meringuée</p>
-              <p class="light">Destructrée</p>
+            <div class="juscon">
+              <div class="menu__card-list-text">
+                <p class="strong">Tarte au citron meringuée</p>
+                <p class="light">Destructrée</p>
+              </div>
+              <p class="price">23€</p>
             </div>
-            <p class="price">23€</p>
+            <div class="animation">
+              <i class="fas fa-check-circle"></i>
+            </div>
           </a>
         </div>
       </div>

@@ -22,10 +22,13 @@
   </head>
   <body>
     <header>
-      <a href="index.html">
+      <a href="index.html" class="header-icon">
         <i class="fas fa-arrow-left"></i>
-        <img class="logo-header" src="./assets/img/ohmyfood-svg.svg" alt=""
-      /></a>
+      </a>
+      <a href="index.html" class="header__logo">
+        <img src="./assets/img/ohmyfood-svg.svg" alt=""
+        />
+      </a>
     </header>
     <img src="./assets/img/delice.jpg" class="main-img" alt="" />
     <section class="menu">
@@ -37,50 +40,80 @@
         <p class="menu__card-title">ENTRÉES</p>
         <div class="menu__card-list">
           <a href="#" class="tartare">
-            <div class="menu__card-list-text">
-              <p class="strong">Tartare de thon</p>
-              <p class="light">Assaisonné au yuzu</p>
+            <div class="juscon">
+              <div class="menu__card-list-text">
+                <p class="strong">Tartare de thon</p>
+                <p class="light">Assaisonné au yuzu</p>
+              </div>
+              <p class="price">25€</p>
             </div>
-            <p class="price">25€</p>
+            <div class="animation">
+              <i class="fas fa-check-circle"></i>
+            </div>
           </a>
           <a href="#" class="bouchee">
-            <div class="menu__card-list-text">
-              <p class="strong">Bouchée de homard croustillant</p>
-              <p class="light">Et sa farandole de petits légumes</p>
+            <div class="juscon">
+              <div class="menu__card-list-text">
+                <p class="strong">Bouchée de homard croustillant</p>
+                <p class="light">Et sa farandole de petits légumes</p>
+              </div>
+              <p class="price">35€</p>
             </div>
-            <p class="price">35€</p>
+            <div class="animation">
+              <i class="fas fa-check-circle"></i>
+            </div>
           </a>
           <a href="#" class="veloute">
-            <div class="menu__card-list-text">
-              <p class="strong">Velouté de cèpes</p>
-              <p class="light">Aux truffes</p>
+            <div class="juscon">
+              <div class="menu__card-list-text">
+                <p class="strong">Velouté de cèpes</p>
+                <p class="light">Aux truffes</p>
+              </div>
+              <p class="price">20€</p>
             </div>
-            <p class="price">20€</p>
+            <div class="animation">
+              <i class="fas fa-check-circle"></i>
+            </div>
           </a>
         </div>
       <div class="menu__card plats">
         <p class="menu__card-title">PLATS</p>
         <div class="menu__card-list">
           <a href="#" class="poulet">
-            <div class="menu__card-list-text">
-              <p class="strong">Poulet rôti aux herbes de provence</p>
-              <p class="light">Et sa crème de truffe</p>
+            <div class="juscon">
+              <div class="menu__card-list-text">
+                <p class="strong">Poulet rôti aux herbes de provence</p>
+                <p class="light">Et sa crème de truffe</p>
+              </div>
+              <p class="price">40€</p>
             </div>
-            <p class="price">40€</p>
+            <div class="animation">
+              <i class="fas fa-check-circle"></i>
+            </div>
           </a>
           <a href="#" class="langouste">
-            <div class="menu__card-list-text">
-              <p class="strong">Langouste rôtie</p>
-              <p class="light">Et ses légumes de saison</p>
+            <div class="juscon">
+              <div class="menu__card-list-text">
+                <p class="strong">Langouste rôtie</p>
+                <p class="light">Et ses légumes de saison</p>
+              </div>
+              <p class="price">35€</p>
             </div>
-            <p class="price">35€</p>
+            <div class="animation">
+              <i class="fas fa-check-circle"></i>
+            </div>
           </a>
           <a href="#" class="cote-de-boeuf">
-            <div class="menu__card-list-text">
-              <p class="strong">Côte de boeuf augus</p>
-              <p class="light">Et sa purée de panais</p>
+            <div class="juscon">
+              <div class="menu__card-list-text">
+                <p class="strong">Côte de boeuf augus</p>
+                <p class="light">Et sa purée de panais</p>
+              </div>
+              <p class="price">44€</p>
             </div>
-            <p class="price">44€</p>
+            <div class="animation">
+              <i class="fas fa-check-circle"></i>
+            </div>
           </a>
         </div>
       </div>
@@ -88,25 +121,40 @@
         <p class="menu__card-title">DESSERTS</p>
         <div class="menu__card-list">
           <a href="#" class="farandole">
-            <div class="menu__card-list-text">
-              <p class="strong">Farandole de desserts</p>
-              <p class="light">Du chef</p>
+            <div class="juscon">
+              <div class="menu__card-list-text">
+                <p class="strong">Farandole de desserts</p>
+                <p class="light">Du chef</p>
+              </div>
+              <p class="price">18€</p>
             </div>
-            <p class="price">18€</p>
+            <div class="animation">
+              <i class="fas fa-check-circle"></i>
+            </div>
           </a>
           <a href="#" class="creme-brulee">
-            <div class="menu__card-list-text">
-              <p class="strong">Crème brulée</p>
-              <p class="light">Revisitée</p>
+            <div class="juscon">
+              <div class="menu__card-list-text">
+                <p class="strong">Crème brulée</p>
+                <p class="light">Revisitée</p>
+              </div>
+              <p class="price">22€</p>
             </div>
-            <p class="price">22€</p>
+            <div class="animation">
+              <i class="fas fa-check-circle"></i>
+            </div>
           </a>
           <a href="#" class="tiramisu">
-            <div class="menu__card-list-text">
-              <p class="strong">Tiramisu</p>
-              <p class="light">À la noisette</p>
+            <div class="juscon">
+              <div class="menu__card-list-text">
+                <p class="strong">Tiramisu</p>
+                <p class="light">À la noisette</p>
+              </div>
+              <p class="price">23€</p>
             </div>
-            <p class="price">23€</p>
+            <div class="animation">
+              <i class="fas fa-check-circle"></i>
+            </div>
           </a>
         </div>
       </div>

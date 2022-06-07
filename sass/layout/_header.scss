@@ -1,22 +1,27 @@
 @use '../utils/variables' as *;
 @use '../utils/mixins' as *;
-@use '../base/typography' as *;
 @use '../base/normalize' as *;
+@use '../base/base' as *;
 
 header {
+  display: flex;
   position: relative;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
   padding: $margin-entire 0 $margin-side;
   box-shadow: 1px 0px 10px $color-shadow;
-  z-index: 1;
+  height: 27px;
+  .header__logo {
+    position: absolute;
+  }
   img {
     width: auto;
   }
   a {
-    align-items: center;
-    i {
-      float: left;
-      margin: 0 $margin-between;
-    }
+    margin: 0 $margin-between;
+  }
+  .header-icon {
+    position: absolute;
+    margin-right: 92vw;
   }
 }

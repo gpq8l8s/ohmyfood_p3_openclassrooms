@@ -2,6 +2,7 @@
 @use '../utils/mixins' as *;
 @use '../base/typography' as *;
 @use '../base/normalize' as *;
+@use '../base/base' as *;
 
 .main-img {
   position: relative;
@@ -19,7 +20,7 @@
   margin-top: -50px;
   background-color: $color-grey-lighter;
   border-radius: 50px 50px 0 0;
-  padding: calc($margin-between/2);
+  padding: $margin-between;
   &__title {
     h1 {
       font-family: $font-family-logo;
@@ -42,31 +43,92 @@
       padding-bottom: 0.4rem;
       width: 65px;
     }
+    &-list {
+      width: 100%;
+    }
   }
 }
 
 .menu__card-list {
   margin-bottom: calc($margin-between * 2.5);
+  &-text {
+    width: 71vw;
+    p {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
   a {
     background-color: #fff;
-    display: inline-block;
     box-shadow: 1px 1px 10px $color-grey;
     margin-bottom: $margin-between;
     display: flex;
-    align-items: last baseline;
     justify-content: space-between;
-    padding: calc($margin-between/2) $margin-between calc($margin-between/2)
-      calc($margin-between/2);
+    align-items: center;
     border-radius: 20px;
+    .juscon {
+      justify-content: space-between;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+    .price {
+      padding-right: $margin-between;
+    }
     &:hover {
       box-shadow: 1px 1px 10px $color-shadow;
+      overflow: hidden;
       transition: all 0.5s ease-in;
+      .juscon {
+        .menu__card-list-text {
+          width: 55vw;
+        }
+      }
+      .animation {
+        display: inline-block;
+        background-color: $color-tertiary;
+        padding: calc($margin-between * 1.45) $margin-between;
+        border-radius: 0 20px 20px 0;
+        animation: slidein 0.5s;
+        & > i {
+          color: #fff;
+          animation: rotate 0.5s;
+        }
+      }
+    }
+
+    @keyframes slidein {
+      from {
+        margin-right: -10%;
+        // transform: scale(0);
+      }
+      to {
+        margin-right: 0%;
+        // transform: scale(1);
+      }
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .menu__card-list {
+      align-items: last baseline;
+      display: flex;
     }
     .price {
       font-size: calc(0.1rem + $font-size-small);
       font-weight: $font-weight-thicker;
     }
     .menu__card-list-text {
+      padding: calc($margin-between/2) $margin-between calc($margin-between/2)
+        calc($margin-between/2);
       p {
         margin: calc($margin-between/3) 0 0 0;
       }
@@ -80,6 +142,14 @@
     }
     p {
       margin: calc($margin-between/2) 0;
+    }
+  }
+}
+
+.menu__card-list {
+  a {
+    .animation {
+      display: none;
     }
   }
 }
