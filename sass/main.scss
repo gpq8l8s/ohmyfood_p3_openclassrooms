@@ -1,6 +1,7 @@
 // Utils
 @use 'utils/variables';
 @use 'utils/mixins';
+@use 'utils/keyframe';
 
 // Base
 @use 'base/base';
@@ -15,10 +16,7 @@
 
 // Pages
 @use 'pages/accueil';
-@use 'pages/palette';
-@use 'pages/enchantee';
-@use 'pages/francaise';
-@use 'pages/delice';
+@use 'pages/menu';
 
 // Themes
 

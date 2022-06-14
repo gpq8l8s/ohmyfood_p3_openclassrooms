@@ -1,5 +1,6 @@
 @use '../utils/variables' as *;
 @use '../utils/mixins' as *;
+@use '../utils/keyframe' as *;
 @use '../base/typography' as *;
 @use '../base/normalize' as *;
 @use '../base/base' as *;
@@ -52,7 +53,7 @@
 .menu__card-list {
   margin-bottom: calc($margin-between * 2.5);
   &-text {
-    width: 71vw;
+    width: 82%;
     p {
       overflow: hidden;
       text-overflow: ellipsis;
@@ -74,47 +75,27 @@
       width: 100%;
     }
     .price {
-      padding-right: $margin-between;
+      // padding-right: $margin-between;
+      width: 1rem;
     }
     &:hover {
       box-shadow: 1px 1px 10px $color-shadow;
       overflow: hidden;
       transition: all 0.5s ease-in;
       .juscon {
-        .menu__card-list-text {
-          width: 55vw;
-        }
+        width: 80%;
+        animation: width 0.5s;
       }
       .animation {
         display: inline-block;
         background-color: $color-tertiary;
-        padding: calc($margin-between * 1.45) $margin-between;
+        padding: calc($margin-between + 0.4rem) $margin-between;
         border-radius: 0 20px 20px 0;
         animation: slidein 0.5s;
         & > i {
           color: #fff;
           animation: rotate 0.5s;
         }
-      }
-    }
-
-    @keyframes slidein {
-      from {
-        margin-right: -10%;
-        // transform: scale(0);
-      }
-      to {
-        margin-right: 0%;
-        // transform: scale(1);
-      }
-    }
-
-    @keyframes rotate {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
       }
     }
 
@@ -125,9 +106,11 @@
     .price {
       font-size: calc(0.1rem + $font-size-small);
       font-weight: $font-weight-thicker;
+      margin: 0;
+      width: 2.5rem;
     }
     .menu__card-list-text {
-      padding: calc($margin-between/2) $margin-between calc($margin-between/2)
+      padding: calc($margin-between/2) 0 calc($margin-between/2)
         calc($margin-between/2);
       p {
         margin: calc($margin-between/3) 0 0 0;
@@ -150,6 +133,9 @@
   a {
     .animation {
       display: none;
+      i {
+        font-size: 1.4rem;
+      }
     }
   }
 }
@@ -174,5 +160,46 @@
         transition: all 0.2s ease;
       }
     }
+  }
+}
+
+.menu__card {
+  opacity: 1;
+  position: relative;
+}
+
+.entree {
+  animation: visibility 0.8s ease-in 0.5s;
+}
+
+.plats {
+  animation: visibility 0.8s ease-in 0.7s;
+}
+
+.desserts {
+  animation: visibility 0.8s ease-in 1s;
+}
+
+@include tablet {
+  .menu {
+    padding: $margin-between $margin-entire;
+    &__card-list {
+      &-text {
+        width: 90%;
+      }
+      a {
+        &:hover {
+          .juscon {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include desktop {
+  .menu {
+    padding: $margin-between calc($margin-entire * 1.5);
   }
 }

@@ -1,0 +1,111 @@
+@keyframes opacity-bg {
+  5%,
+  50%,
+  80% {
+    background: rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+  }
+
+  0%,
+  100% {
+    background: rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes opacity-spinner {
+  0%,
+  50%,
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes sk-rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes sk-rotate {
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes sk-bounce {
+  0%,
+  100% {
+    -webkit-transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes sk-bounce {
+  0%,
+  100% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes z-index {
+  0%,
+  50%,
+  85% {
+    position: relative;
+    z-index: -1;
+  }
+}
+
+@keyframes width {
+  0% {
+    width: 90%;
+  }
+  100% {
+    width: 80%;
+  }
+}
+
+@keyframes visibility {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    bottom: 10px;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+    bottom: 0;
+  }
+}
+
+@keyframes slidein {
+  from {
+    margin-right: -10%;
+    // transform: scale(0);
+  }
+  to {
+    margin-right: 0%;
+    // transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,5 +1,6 @@
 @use '../utils/variables' as *;
 @use '../utils/mixins' as *;
+@use '../utils/keyframe' as *;
 @use '../base/typography' as *;
 @use '../base/normalize' as *;
 @use '../base/base' as *;
@@ -11,20 +12,6 @@
   background: rgba(0, 0, 0, 0);
   animation: 3s none opacity-bg;
   position: absolute;
-}
-
-@keyframes opacity-bg {
-  5%,
-  50%,
-  80% {
-    background: rgba(0, 0, 0, 0.4);
-    overflow: hidden;
-  }
-
-  0%,
-  100% {
-    background: rgba(0, 0, 0, 0);
-  }
 }
 
 .loading-spinner-wrapper {
@@ -45,18 +32,6 @@
   -webkit-animation: 3s none sk-rotate;
   animation: 3s none sk-rotate, 3s none opacity-spinner;
   opacity: 0;
-}
-
-@keyframes opacity-spinner {
-  0%,
-  50%,
-  80% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
 }
 
 .loading-spinner-dot1,
@@ -83,54 +58,9 @@
   animation-delay: -1s;
 }
 
-@-webkit-keyframes sk-rotate {
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
-}
-@keyframes sk-rotate {
-  100% {
-    transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-  }
-}
-
-@-webkit-keyframes sk-bounce {
-  0%,
-  100% {
-    -webkit-transform: scale(0);
-  }
-  50% {
-    -webkit-transform: scale(1);
-  }
-}
-
-@keyframes sk-bounce {
-  0%,
-  100% {
-    transform: scale(0);
-    -webkit-transform: scale(0);
-  }
-  50% {
-    transform: scale(1);
-    -webkit-transform: scale(1);
-  }
-}
-
-@keyframes z-index {
-  0%,
-  50%,
-  85% {
-    position: relative;
-    z-index: -1;
-  }
-}
-
 .main {
   margin: 0 0 $margin-between;
   display: inline;
-  // position: relative;
-  // z-index: -1;
   animation: z-index 3s;
   &__location {
     display: flex;
@@ -215,7 +145,6 @@
       padding: $margin-side$margin-entire;
       border-radius: $font-size-large;
       margin-left: -15px;
-      // z-index: -1;
       i {
         margin-right: $margin-between;
         color: $color-grey-dark;
@@ -271,76 +200,73 @@
       margin: calc($margin-between/3) 0 calc($margin-between/2);
       font-weight: $font-weight-light;
     }
-    button {
-      border: none;
-      background: none;
-      width: 3rem;
-      height: 3rem;
-      cursor: pointer;
+    .icon-heart {
       i {
         font-size: $icon-size;
       }
-      .full,
-      .empty {
-        width: $icon-size;
-        height: $icon-size;
-        border-radius: 0;
-      }
       .full {
         display: none;
-        background: linear-gradient(to top, $color-secondary, $color-primary);
-        background-clip: text;
       }
-      &:hover {
-        .empty {
-          display: none;
-        }
+      & > .empty:hover,
+      & > .empty:hover::after {
+        opacity: 0;
       }
 
-      &:hover > .full {
-        // content: '';
-        display: inline;
-        animation: fill-icon 0.5s ease-in;
-        // background: linear-gradient(to top, $color-secondary, $color-primary);
-        // background-clip: text;
+      & > .empty:hover + .full {
+        // animation: fill-icon 0.5s ease-in;
+        display: inline-block;
+        color: transparent;
+        background: linear-gradient(to top, $color-secondary, $color-primary);
+        background: -webkit-linear-gradient(
+          to top,
+          $color-secondary,
+          $color-primary
+        );
+        background: -moz-linear-gradient(
+          to top,
+          $color-secondary,
+          $color-primary
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
       }
     }
   }
 }
 
-@keyframes fill-icon-translate {
-  0% {
-    // background: linear-gradient(to top, $color-secondary, $color-primary);
-    // transform: translateY(-10px);
-    background: linear-gradient(to top, $color-secondary, $color-primary);
-    background-clip: text;
-  }
-  100% {
-    // transform: translateY(0);
-    background: linear-gradient(to top, $color-secondary, $color-primary);
-    background-clip: text;
-  }
-}
+// @keyframes fill-icon-translate {
+//   0% {
+//     // background: linear-gradient(to top, $color-secondary, $color-primary);
+//     // transform: translateY(-10px);
+//     background: linear-gradient(to top, $color-secondary, $color-primary);
+//     background-clip: text;
+//   }
+//   100% {
+//     // transform: translateY(0);
+//     background: linear-gradient(to top, $color-secondary, $color-primary);
+//     -webkit-background-clip: text;
+//     color: transparent;
+//   }
+// }
 
 @keyframes fill-icon {
   0% {
-    color: transparent;
-    // background-clip: text;
-    // background: linear-gradient(to top, $color-secondary, $color-primary);
+    background-clip: text;
+    background: linear-gradient(to top, $color-secondary, $color-primary);
     // overflow: hidden;
   }
-  80%,
+
   100% {
     // background: -moz-linear-gradient(to top, $color-secondary, $color-primary);
     // background: -webkit-linear-gradient(
-    //   to top,
-    //   $color-secondary,
-    //   $color-primary
+    // to top,
+    // $color-secondary,
+    // $color-primary
     // );
     background: linear-gradient(to top, $color-secondary, $color-primary);
+    background-clip: text;
     // -webkit-background-clip: text;
     // -moz-background-clip: text;
-    background-clip: text;
   }
 
   // 80%,
@@ -351,10 +277,42 @@
 }
 
 .restaurants
+  > .restaurants__wrapper
   > .restaurants__card
   > .restaurants__card-title
   > .restaurants__card-text
   > .restaurant__card-title--bold {
   font-weight: $font-weight-thicker;
   margin: calc($margin-between/2) 0 0;
+}
+
+@include tablet {
+  .fonctionnement {
+    margin: calc($margin-entire * 2) $margin-entire;
+  }
+  .restaurants {
+    padding: calc($margin-entire * 2) $margin-entire;
+  }
+}
+
+@include desktop {
+  .fonctionnement {
+    margin: calc($margin-entire * 2.5) calc($margin-entire * 1.5);
+    &__wrapper {
+      display: flex;
+      justify-content: space-around;
+      a {
+        margin-right: $margin-side;
+      }
+    }
+  }
+
+  .restaurants {
+    padding: calc($margin-entire * 2.5) calc($margin-entire * 1.5);
+    &__wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(auto, 50%));
+      grid-gap: 1rem;
+    }
+  }
 }

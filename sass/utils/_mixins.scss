@@ -1,3 +1,5 @@
+@use './variables' as *;
+
 @mixin font-size($fs-map) {
   @each $fs-breakpoint, $fs-font-size in $fs-map {
     @if $fs-breakpoint == null {
