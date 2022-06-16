@@ -21,15 +21,12 @@
     />
   </head>
   <body>
-    <!-- <div class="loading-spinner-none"> -->
-    <!-- </div> -->
     <div class="loading-spinner">
-      <div class="loading-spinner-wrapper">
-        <div class="loading-spinner-container">
-          <div class="loading-spinner-dot1"></div>
-          <div class="loading-spinner-dot2"></div>
-        </div>
+      <div class="loading-spinner-container">
+        <div class="loading-spinner-dot1"></div>
+        <div class="loading-spinner-dot2"></div>
       </div>
+      <!-- </div> -->
       <header>
         <a href="index.html" class="header__logo">
           <img src="./assets/img/ohmyfood-svg.svg" alt="" />
@@ -101,7 +98,10 @@
                 <p class="restaurant__card-title--bold">La note enchantée</p>
                 <p>Charonne</p>
               </div>
-              <i class="far fa-heart"></i>
+              <div class="icon-heart">
+                <i class="far fa-heart empty"></i>
+                <i class="fas fa-heart full"></i>
+              </div>
             </div>
           </a>
           <a href="a-la-francaise.html" class="restaurants__card">
@@ -112,7 +112,10 @@
                 <p class="restaurant__card-title--bold">À la française</p>
                 <p>Cité Rouge</p>
               </div>
-              <i class="far fa-heart"></i>
+              <div class="icon-heart">
+                <i class="far fa-heart empty"></i>
+                <i class="fas fa-heart full"></i>
+              </div>
             </div>
           </a>
           <a href="le-delice-des-sens.html" class="restaurants__card">
@@ -123,13 +126,15 @@
                 <p class="restaurant__card-title--bold">Le délice des sens</p>
                 <p>Folie-Méricourt</p>
               </div>
-              <i class="far fa-heart"></i>
+              <div class="icon-heart">
+                <i class="far fa-heart empty"></i>
+                <i class="fas fa-heart full"></i>
+              </div>
             </div>
           </a>
         </div>
       </section>
       <footer>
-        <!-- <img class="logo-footer" src="./img/ohmyfood-svg.svg" alt="" /> -->
         <a href="#">
           <p class="footer-logo">ohmyfood</p>
         </a>

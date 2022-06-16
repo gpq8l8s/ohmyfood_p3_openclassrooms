@@ -50,6 +50,45 @@
   }
 }
 
+.menu {
+  .icon-heart {
+    display: flex;
+    i {
+      font-size: $icon-size;
+    }
+    .empty {
+      margin-right: -21px;
+      z-index: 1;
+    }
+    .full {
+      opacity: 0;
+    }
+    & > .empty:hover {
+      animation: hide-heart forwards 1s;
+      cursor: pointer;
+    }
+
+    & > .empty:hover + .full {
+      animation: show-heart forwards 1s;
+      display: inline-block;
+      color: transparent;
+      background: linear-gradient(to top, $color-secondary, $color-primary);
+      background: -webkit-linear-gradient(
+        to top,
+        $color-secondary,
+        $color-primary
+      );
+      background: -moz-linear-gradient(
+        to top,
+        $color-secondary,
+        $color-primary
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+  }
+}
+
 .menu__card-list {
   margin-bottom: calc($margin-between * 2.5);
   &-text {
@@ -173,11 +212,11 @@
 }
 
 .plats {
-  animation: visibility 0.8s ease-in 0.7s;
+  animation: visibility 0.8s ease-in 1s;
 }
 
 .desserts {
-  animation: visibility 0.8s ease-in 1s;
+  animation: visibility 0.8s ease-in 1.5s;
 }
 
 @include tablet {

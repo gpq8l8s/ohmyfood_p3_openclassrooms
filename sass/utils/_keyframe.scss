@@ -3,11 +3,11 @@
   50%,
   80% {
     background: rgba(0, 0, 0, 0.4);
-    overflow: hidden;
   }
 
   0%,
   100% {
+    overflow: hidden;
     background: rgba(0, 0, 0, 0);
   }
 }
@@ -21,6 +21,13 @@
 
   100% {
     opacity: 0;
+  }
+}
+
+@keyframes z-index-spinner {
+  0%,
+  100% {
+    z-index: 1;
   }
 }
 
@@ -80,7 +87,7 @@
   0% {
     visibility: hidden;
     opacity: 0;
-    bottom: 10px;
+    bottom: -10px;
   }
 
   100% {
@@ -107,5 +114,22 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes show-heart {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes hide-heart {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }

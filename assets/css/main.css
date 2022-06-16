@@ -6,9 +6,9 @@
 @keyframes opacity-bg {
   5%, 50%, 80% {
     background: rgba(0, 0, 0, 0.4);
-    overflow: hidden;
   }
   0%, 100% {
+    overflow: hidden;
     background: rgba(0, 0, 0, 0);
   }
 }
@@ -18,6 +18,11 @@
   }
   100% {
     opacity: 0;
+  }
+}
+@keyframes z-index-spinner {
+  0%, 100% {
+    z-index: 1;
   }
 }
 @-webkit-keyframes sk-rotate {
@@ -67,7 +72,7 @@
   0% {
     visibility: hidden;
     opacity: 0;
-    bottom: 10px;
+    bottom: -10px;
   }
   100% {
     visibility: visible;
@@ -89,6 +94,22 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+@keyframes show-heart {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes hide-heart {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 * {
@@ -515,15 +536,13 @@ header .header-icon {
 
 .loading-spinner {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background: rgba(0, 0, 0, 0);
-  animation: 3s none opacity-bg;
-  position: absolute;
-}
-
-.loading-spinner-wrapper {
-  display: flex;
-  justify-content: center;
+  animation: 3s none opacity-bg, 2s opacity-spinner;
+  -moz-animation: 3s none opacity-bg;
+  -webkit-animation: 3s none opacity-bg;
+  overflow: hidden;
+  display: block;
 }
 
 .loading-spinner-container {
@@ -531,22 +550,21 @@ header .header-icon {
   width: 40px;
   height: 40px;
   top: 50%;
+  left: 50%;
+  display: inline-block;
   position: absolute;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
   -webkit-animation: 3s none sk-rotate;
-  animation: 3s none sk-rotate, 3s none opacity-spinner;
+  -moz-animation: 3s none sk-rotate;
+  animation: 3s none sk-rotate, 3s none opacity-spinner, z-index-spinner 3s;
   opacity: 0;
 }
 
 .loading-spinner-dot1,
 .loading-spinner-dot2 {
-  width: 60%;
-  height: 60%;
+  width: 50%;
+  height: 50%;
   display: inline-block;
-  position: absolute;
+  position: relative;
   top: 0;
   border-radius: 100%;
   -webkit-animation: 2s ease-in-out infinite sk-bouce;
@@ -565,10 +583,17 @@ header .header-icon {
   animation-delay: -1s;
 }
 
+.main,
+.fonctionnement,
+.restaurants {
+  animation: z-index 3s;
+  -webkit-animation: z-index 3s;
+  -moz-animation: z-index 3s;
+}
+
 .main {
   margin: 0 0 1.2rem;
-  display: inline;
-  animation: z-index 3s;
+  display: inline-block;
 }
 .main__location {
   display: flex;
@@ -613,7 +638,6 @@ header .header-icon {
 
 .fonctionnement {
   margin: 3rem 1rem;
-  animation: z-index 3s;
 }
 .fonctionnement__lists {
   display: flex;
@@ -664,7 +688,7 @@ header .header-icon {
   background-color: #f3f3f3;
   padding: 3rem 1rem;
   position: relative;
-  z-index: -1;
+  z-index: 0;
 }
 .restaurants__card {
   position: relative;
@@ -704,16 +728,24 @@ header .header-icon {
   margin: 0.4rem 0 0.6rem;
   font-weight: 300;
 }
+.restaurants__card-title .icon-heart {
+  display: flex;
+}
 .restaurants__card-title .icon-heart i {
   font-size: 1.3rem;
 }
-.restaurants__card-title .icon-heart .full {
-  display: none;
+.restaurants__card-title .icon-heart .empty {
+  margin-right: -21px;
+  z-index: 1;
 }
-.restaurants__card-title .icon-heart > .empty:hover, .restaurants__card-title .icon-heart > .empty:hover::after {
+.restaurants__card-title .icon-heart .full {
   opacity: 0;
 }
+.restaurants__card-title .icon-heart > .empty:hover {
+  animation: hide-heart forwards 1s;
+}
 .restaurants__card-title .icon-heart > .empty:hover + .full {
+  animation: show-heart forwards 1s;
   display: inline-block;
   color: transparent;
   background: linear-gradient(to top, #ff79da, #9356dc);
@@ -723,16 +755,6 @@ header .header-icon {
   background-clip: text;
 }
 
-@keyframes fill-icon {
-  0% {
-    background-clip: text;
-    background: linear-gradient(to top, #ff79da, #9356dc);
-  }
-  100% {
-    background: linear-gradient(to top, #ff79da, #9356dc);
-    background-clip: text;
-  }
-}
 .restaurants > .restaurants__wrapper > .restaurants__card > .restaurants__card-title > .restaurants__card-text > .restaurant__card-title--bold {
   font-weight: 700;
   margin: 0.6rem 0 0;
@@ -809,6 +831,34 @@ header .header-icon {
 }
 .menu__card-list {
   width: 100%;
+}
+
+.menu .icon-heart {
+  display: flex;
+}
+.menu .icon-heart i {
+  font-size: 1.3rem;
+}
+.menu .icon-heart .empty {
+  margin-right: -21px;
+  z-index: 1;
+}
+.menu .icon-heart .full {
+  opacity: 0;
+}
+.menu .icon-heart > .empty:hover {
+  animation: hide-heart forwards 1s;
+  cursor: pointer;
+}
+.menu .icon-heart > .empty:hover + .full {
+  animation: show-heart forwards 1s;
+  display: inline-block;
+  color: transparent;
+  background: linear-gradient(to top, #ff79da, #9356dc);
+  background: -webkit-linear-gradient(to top, #ff79da, #9356dc);
+  background: -moz-linear-gradient(to top, #ff79da, #9356dc);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .menu__card-list {
@@ -924,11 +974,11 @@ header .header-icon {
 }
 
 .plats {
-  animation: visibility 0.8s ease-in 0.7s;
+  animation: visibility 0.8s ease-in 1s;
 }
 
 .desserts {
-  animation: visibility 0.8s ease-in 1s;
+  animation: visibility 0.8s ease-in 1.5s;
 }
 
 @media only screen and (min-width: 768px) {

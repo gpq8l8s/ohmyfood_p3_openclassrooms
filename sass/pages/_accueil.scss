@@ -8,15 +8,14 @@
 //laoding-spinner
 .loading-spinner {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background: rgba(0, 0, 0, 0);
-  animation: 3s none opacity-bg;
-  position: absolute;
-}
-
-.loading-spinner-wrapper {
-  display: flex;
-  justify-content: center;
+  animation: 3s none opacity-bg, 2s opacity-spinner;
+  -moz-animation: 3s none opacity-bg;
+  -webkit-animation: 3s none opacity-bg;
+  overflow: hidden;
+  display: block;
+  // position: absolute;
 }
 
 .loading-spinner-container {
@@ -24,22 +23,23 @@
   width: 40px;
   height: 40px;
   top: 50%;
+  left: 50%;
+  display: inline-block;
   position: absolute;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
   -webkit-animation: 3s none sk-rotate;
-  animation: 3s none sk-rotate, 3s none opacity-spinner;
+  -moz-animation: 3s none sk-rotate;
+  animation: 3s none sk-rotate, 3s none opacity-spinner, z-index-spinner 3s;
   opacity: 0;
+  // overflow: hidden;
 }
 
 .loading-spinner-dot1,
 .loading-spinner-dot2 {
-  width: 60%;
-  height: 60%;
+  // overflow: hidden;
+  width: 50%;
+  height: 50%;
   display: inline-block;
-  position: absolute;
+  position: relative;
   top: 0;
   border-radius: 100%;
   -webkit-animation: 2s ease-in-out infinite sk-bouce;
@@ -58,10 +58,17 @@
   animation-delay: -1s;
 }
 
+.main,
+.fonctionnement,
+.restaurants {
+  animation: z-index 3s;
+  -webkit-animation: z-index 3s;
+  -moz-animation: z-index 3s;
+}
+
 .main {
   margin: 0 0 $margin-between;
-  display: inline;
-  animation: z-index 3s;
+  display: inline-block;
   &__location {
     display: flex;
     background-color: $color-grey;
@@ -107,7 +114,8 @@
 
 .fonctionnement {
   margin: $margin-entire * 1.5 $margin-side;
-  animation: z-index 3s;
+  // -moz-animation: z-index 3s;
+  // -webkit-animation: z-index 3s;
   &__lists {
     display: flex;
     align-items: center;
@@ -160,7 +168,9 @@
   background-color: $color-grey-lighter;
   padding: calc($margin-entire * 1.5) $margin-side;
   position: relative;
-  z-index: -1;
+  // -moz-animation: z-index 3s;
+  // -webkit-animation: z-index 3s;
+  z-index: 0;
   &__card {
     position: relative;
     background-color: #fff;
@@ -201,19 +211,23 @@
       font-weight: $font-weight-light;
     }
     .icon-heart {
+      display: flex;
       i {
         font-size: $icon-size;
       }
-      .full {
-        display: none;
+      .empty {
+        margin-right: -21px;
+        z-index: 1;
       }
-      & > .empty:hover,
-      & > .empty:hover::after {
+      .full {
         opacity: 0;
+      }
+      & > .empty:hover {
+        animation: hide-heart forwards 1s;
       }
 
       & > .empty:hover + .full {
-        // animation: fill-icon 0.5s ease-in;
+        animation: show-heart forwards 1s;
         display: inline-block;
         color: transparent;
         background: linear-gradient(to top, $color-secondary, $color-primary);
@@ -232,48 +246,6 @@
       }
     }
   }
-}
-
-// @keyframes fill-icon-translate {
-//   0% {
-//     // background: linear-gradient(to top, $color-secondary, $color-primary);
-//     // transform: translateY(-10px);
-//     background: linear-gradient(to top, $color-secondary, $color-primary);
-//     background-clip: text;
-//   }
-//   100% {
-//     // transform: translateY(0);
-//     background: linear-gradient(to top, $color-secondary, $color-primary);
-//     -webkit-background-clip: text;
-//     color: transparent;
-//   }
-// }
-
-@keyframes fill-icon {
-  0% {
-    background-clip: text;
-    background: linear-gradient(to top, $color-secondary, $color-primary);
-    // overflow: hidden;
-  }
-
-  100% {
-    // background: -moz-linear-gradient(to top, $color-secondary, $color-primary);
-    // background: -webkit-linear-gradient(
-    // to top,
-    // $color-secondary,
-    // $color-primary
-    // );
-    background: linear-gradient(to top, $color-secondary, $color-primary);
-    background-clip: text;
-    // -webkit-background-clip: text;
-    // -moz-background-clip: text;
-  }
-
-  // 80%,
-  // 100% {
-  //   background: linear-gradient(to top, $color-secondary, $color-primary);
-  //   background-clip: text;
-  // }
 }
 
 .restaurants
