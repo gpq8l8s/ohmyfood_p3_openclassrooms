@@ -13,9 +13,10 @@
   animation: 3s none opacity-bg, 2s opacity-spinner;
   -moz-animation: 3s none opacity-bg;
   -webkit-animation: 3s none opacity-bg;
-  overflow: hidden;
+  // overflow: hidden;
   display: block;
   // position: absolute;
+  background: rgba(0, 0, 0, 0);
 }
 
 .loading-spinner-container {
@@ -69,6 +70,7 @@
 .main {
   margin: 0 0 $margin-between;
   display: inline-block;
+  width: 100%;
   &__location {
     display: flex;
     background-color: $color-grey;

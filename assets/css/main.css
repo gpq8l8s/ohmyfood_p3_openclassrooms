@@ -541,8 +541,8 @@ header .header-icon {
   animation: 3s none opacity-bg, 2s opacity-spinner;
   -moz-animation: 3s none opacity-bg;
   -webkit-animation: 3s none opacity-bg;
-  overflow: hidden;
   display: block;
+  background: rgba(0, 0, 0, 0);
 }
 
 .loading-spinner-container {
@@ -594,6 +594,7 @@ header .header-icon {
 .main {
   margin: 0 0 1.2rem;
   display: inline-block;
+  width: 100%;
 }
 .main__location {
   display: flex;
