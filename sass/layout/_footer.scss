@@ -38,3 +38,15 @@ footer {
 .footer__light {
   font-weight: $font-weight-light;
 }
+
+@include tablet {
+  footer {
+    padding: $margin-entire calc($margin-entire * 1.5);
+  }
+}
+
+@include desktop {
+  footer {
+    padding: $margin-entire calc($margin-entire * 2);
+  }
+}

@@ -511,6 +511,16 @@ footer ul li i {
   font-weight: 300;
 }
 
+@media only screen and (min-width: 768px) {
+  footer {
+    padding: 2rem 3rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  footer {
+    padding: 2rem 4rem;
+  }
+}
 header {
   display: flex;
   position: relative;
@@ -866,7 +876,7 @@ header .header-icon {
   margin-bottom: 3rem;
 }
 .menu__card-list-text {
-  width: 82%;
+  width: 80%;
 }
 .menu__card-list-text p {
   overflow: hidden;
@@ -918,8 +928,10 @@ header .header-icon {
 .menu__card-list a .price {
   font-size: 1.1rem;
   font-weight: 700;
-  margin: 0;
+  margin: 0 0 0.6rem 0;
   width: 2.5rem;
+  display: flex;
+  align-self: flex-end;
 }
 .menu__card-list a .menu__card-list-text {
   padding: 0.6rem 0 0.6rem 0.6rem;

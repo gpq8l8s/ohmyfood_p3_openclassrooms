@@ -92,7 +92,7 @@
 .menu__card-list {
   margin-bottom: calc($margin-between * 2.5);
   &-text {
-    width: 82%;
+    width: 80%;
     p {
       overflow: hidden;
       text-overflow: ellipsis;
@@ -145,8 +145,10 @@
     .price {
       font-size: calc(0.1rem + $font-size-small);
       font-weight: $font-weight-thicker;
-      margin: 0;
+      margin: 0 0 calc($margin-between/2) 0;
       width: 2.5rem;
+      display: flex;
+      align-self: flex-end;
     }
     .menu__card-list-text {
       padding: calc($margin-between/2) 0 calc($margin-between/2)
